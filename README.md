@@ -1,10 +1,7 @@
-# My Personal Project
+# Projekt PersonalityType
 
-## A subtitle
+## Description
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+This is a personality type tracking application in a psychology clinic. It lets you create a user with a name, age, and ID. Then you can take a multiple-choice personality test of an arbitrary amount of questions that will determine whether you are an *Intuition*, *Sensing*, *Thinking*, or *Feeling* dominant individual (you can keep answering random questions until you choose to end the test). During the test, you can choose to change an answer by pressing "undo". After you end test, you can see a chart with your percentages for each category. The program will also return your dominant function (e.g *Intuition*). You can then view the results of other users in the program by pressing "users", but not their name, age, and ID.  
 
-An example of text with **bold** and *italic* fonts.  
+The intended audience of this project are the **clients of the psychology clinic**. The test creates a profile for them with some simple, basic information for the psychologist to refer to. This project is of interest to me because it involves calculating the dominant function of the user, and creating unique questions and storing them in a list. It can also show people something new that they might not have already known about themselves.  
