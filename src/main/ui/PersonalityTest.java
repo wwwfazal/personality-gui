@@ -51,6 +51,22 @@ public class PersonalityTest {
         return 0;
     }
 
+    public int getIntuitionIndex() {
+        return 0;
+    }
+
+     public int getThinkingIndex() {
+        return 0;
+    }
+
+     public int getSensingIndex() {
+        return 0;
+    }
+
+     public int getFeelingIndex() {
+        return 0;
+    }
+
 
 
 
