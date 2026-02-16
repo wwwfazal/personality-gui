@@ -58,6 +58,7 @@ public class TestPersonalityTest {
 
         pt.addQuestion(q2);
         pt.trackAnswer(q2);
+        pt.calculatePercentage();
 
         assertEquals(50, pt.getIntuitionPercentage());
         assertEquals(50, pt.getThinkingPercentage());
@@ -69,7 +70,7 @@ public class TestPersonalityTest {
     @Test
     void testGetDominantFunction() {
         pt.addQuestion(q1);
-        pt.getDominantFunction();
+        pt.trackAnswer(q1);
         assertEquals("Thinking", pt.getDominantFunction());
     }
 
