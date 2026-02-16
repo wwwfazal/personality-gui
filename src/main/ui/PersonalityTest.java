@@ -67,6 +67,22 @@ public class PersonalityTest {
         return 0;
     }
 
+        public int getIntuitionPercentage() {
+        return 0;
+    }
+
+     public int getThinkingPercentage() {
+        return 0;
+    }
+
+     public int getSensingPercentage() {
+        return 0;
+    }
+
+     public int getFeelingPercentage() {
+        return 0;
+    }
+
 
 
 
