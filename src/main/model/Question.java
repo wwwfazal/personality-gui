@@ -11,12 +11,14 @@ public class Question {
     }
 
 // EFFECTS: returns text, null if empty
-    public void getText() {
+    public String getText() {
+        return "";
 
     }
 
 // EFFECTS: returns category
-    public void getCategory() {
+    public String getCategory() {
+        return "";
 
     }
 }
