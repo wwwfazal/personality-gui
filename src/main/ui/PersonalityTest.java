@@ -13,8 +13,23 @@ public class PersonalityTest {
     private int sensingIndex;
     private int feelingIndex;
 
+    private int intuitionPercent;
+    private int thinkingPercent;
+    private int sensingPercent;
+    private int feelingPercent;
+
     // EFFECTS: Constructs an empty personality test with no questions and all index scores == 0
     public PersonalityTest() {
+        questions = new ArrayList<>();
+        intuitionIndex = 0;
+        thinkingIndex = 0;
+        sensingIndex = 0;
+        feelingIndex = 0;
+
+        intuitionPercent = 0;
+        thinkingPercent = 0;
+        sensingPercent = 0;
+        feelingPercent = 0;
 
     }
 
@@ -23,18 +38,45 @@ public class PersonalityTest {
     // MODIFIES: this
     // EFFECTS: adds the given question to the personality test
     public void addQuestion(Question question) {
+        if(question != null) {
+        questions.add(question);
+    }
 
     }
 
     // EFFECTS: returns all questions in a list
     public List<Question> getQuestions() {
-        return null;
+        return questions;
     }
 
     // REQUIRES: questions.size() > 0,
     // EFFECTS: returns the function with the highest index 
     public String getDominantFunction() {
-        return "";
+        int cumulative = intuitionIndex + thinkingIndex + sensingIndex + feelingIndex;
+        if(cumulative == 0){
+            return "None";
+        }
+
+
+        int highestIndex = intuitionIndex;
+        String dominantFunction = "Intuition";
+
+        if(thinkingIndex > highestIndex) {
+            highestIndex = thinkingIndex;
+            dominantFunction = "Thinking";
+        }
+
+        if(sensingIndex > highestIndex) {
+            highestIndex = sensingIndex;
+            dominantFunction = "Sensing";
+        }
+
+        if(feelingIndex > highestIndex) {
+            highestIndex = feelingIndex;
+            dominantFunction = "Feeling";
+        }
+
+        return dominantFunction;
     }
 
 
@@ -42,45 +84,69 @@ public class PersonalityTest {
     // MODIFIES: corresponding index
     // EFFECTS: incremements the score by 1 for the corresponding index of the question
     public void trackAnswer(Question question) {
+        if(question != null) {
+            String category = question.getCategory();
+        if(category.equals("Intuition")) {
+            intuitionIndex += 1;
+        } else if (category.equals("Thinking")) {
+            thinkingIndex += 1;
+        } else if (category.equals("Sensing")) {
+            sensingIndex += 1;
+        } else if (category.equals("Feeling")) {
+            feelingIndex += 1;
+        }
+    }
 
     }
 
     // EFFECTS: calculates the percentage of each function based on the number of answers tracked
     //          stores the results in a new percent value for each function 
-    public int calculatePercentage() {
-        return 0;
+    public void calculatePercentage() {
+        int cumulative = intuitionIndex + sensingIndex + thinkingIndex + feelingIndex;
+        if (cumulative == 0) {
+        intuitionPercent = 0;
+        thinkingPercent = 0;
+        sensingPercent = 0;
+        feelingPercent = 0;
+        } else {
+            intuitionPercent = (intuitionIndex * 100) / cumulative;
+            thinkingPercent = (thinkingIndex * 100) / cumulative;
+            sensingPercent = (sensingIndex * 100) / cumulative;
+            feelingPercent = (feelingIndex * 100) / cumulative;
+        }
+       
     }
 
     public int getIntuitionIndex() {
-        return 0;
+        return intuitionIndex;
     }
 
      public int getThinkingIndex() {
-        return 0;
+        return thinkingIndex;
     }
 
      public int getSensingIndex() {
-        return 0;
+        return sensingIndex;
     }
 
      public int getFeelingIndex() {
-        return 0;
+        return feelingIndex;
     }
 
         public int getIntuitionPercentage() {
-        return 0;
+        return intuitionPercent;
     }
 
      public int getThinkingPercentage() {
-        return 0;
+        return thinkingPercent;
     }
 
      public int getSensingPercentage() {
-        return 0;
+        return sensingPercent;
     }
 
      public int getFeelingPercentage() {
-        return 0;
+        return feelingPercent;
     }
 
 
