@@ -8,17 +8,19 @@ public class Question {
     // REQUIRES: text != null && text.length() > 0, and category != null 
     // EFFECTS: text of question is set to questionText
     public Question(String text, String category) {
+        this.text = text;
+        this.category = category;
     }
 
 // EFFECTS: returns text, null if empty
     public String getText() {
-        return "";
+        return text;
 
     }
 
 // EFFECTS: returns category
     public String getCategory() {
-        return "";
+        return category;
 
     }
 }
