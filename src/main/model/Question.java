@@ -4,21 +4,21 @@ package model;
 public class Question {
     private String text;
     private String category;
-    
-    // REQUIRES: text != null && text.length() > 0, and category != null 
+
+    // REQUIRES: text != null && text.length() > 0, and category != null
     // EFFECTS: text of question is set to questionText
     public Question(String text, String category) {
         this.text = text;
         this.category = category;
     }
 
-// EFFECTS: returns text, null if empty
+    // EFFECTS: returns text, null if empty
     public String getText() {
         return text;
 
     }
 
-// EFFECTS: returns category
+    // EFFECTS: returns category
     public String getCategory() {
         return category;
 

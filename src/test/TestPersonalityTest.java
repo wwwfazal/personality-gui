@@ -1,5 +1,4 @@
 import model.*;
-import ui.PersonalityTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
