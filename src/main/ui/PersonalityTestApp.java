@@ -27,15 +27,16 @@ public class PersonalityTestApp {
 
         while (keepRunning) {
             displayMenu();
-            command = input.next();
+            command = input.nextLine();
             command = command.toLowerCase();
-        }
+        
 
         if (command.equals("q")) {
             keepRunning = false;
         } else {
             processCommand(command);
         }
+    }
 
         System.out.println("You quit!");
     }
@@ -43,7 +44,7 @@ public class PersonalityTestApp {
     private void init() {
         test = new PersonalityTest();
         input = new Scanner(System.in);
-        input.useDelimiter("\r?\n|\r");
+     //   input.useDelimiter("\r?\n|\r");
 
         test.addQuestion(new Question("I enjoy exploring new scenarios and ideas", "Intuition"));
         test.addQuestion(new Question("I focus on sensory and tangible details", "Sensing"));
@@ -64,7 +65,7 @@ public class PersonalityTestApp {
     private void processCommand(String command) {
         if (command.equals("a")) {
             addUserProfile();
-        } else if (command.equals("t")) {
+        } else if (command.equals("p")) {
             takePersonalityTest();
         } else if (command.equals("r")) {
             viewPersonalityResults();
@@ -78,23 +79,29 @@ public class PersonalityTestApp {
     private void addUserProfile() {
         System.out.print("Enter your name: ");
         name = input.nextLine();
+
         System.out.print("Enter your age: ");
         age = input.nextInt();
+        input.nextLine();
+        
+        
         System.out.print("Enter your ID: ");
         id = input.nextLine();
-        System.out.print("Profile created for " + name + ", age " + age + "ID" + id);
+        System.out.print("Profile created for " + name + ", age: " + age + ", ID: " + id);
     }
 
     private void takePersonalityTest() {
         System.out.println("\n*** Take the Personality Test ***");
         for (Question q : test.getQuestions()) {
-            System.out.println(q.getText() + " (" + q.getCategory() + ")");
-            System.out.println("Press enter to answer this question");
-            input.nextLine();
-            test.trackAnswer(q);
-            test.calculatePercentage();
-        }
+            System.out.println("\n" + q.getText());
+            System.out.println("Answer (y/n)");
+            String answer = input.nextLine().toLowerCase();
 
+            if (answer.equals("y")) {
+            test.trackAnswer(q);
+            }
+        }
+        test.calculatePercentage();
         System.out.println("The test has been completed.");
     }
 
