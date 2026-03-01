@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 
-@ExcludeFromJacocoGeneratedReport;
+@ExcludeFromJacocoGeneratedReport
 public class TestQuestion {
     Question q1;
     Question q2;
