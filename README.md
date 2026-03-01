@@ -13,3 +13,5 @@ User Stories:
 - As a user, I want to be able to view information about what each function means.
 - As a user, I want to view the dominant functions of other users in the system
 - As a user, I want to end my test at any time and have my results calculated based on the questions I answered 
+- As a user, when I select the quit option from the control menu I want to be reminded to save my personality results and have the option to do so or not  
+- As a user, when I start the application I want to have the option to load my personality data from file
