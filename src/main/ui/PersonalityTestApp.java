@@ -1,8 +1,11 @@
 package ui;
 
 import java.util.Scanner;
+
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import model.*;
 
+@ExcludeFromJacocoGeneratedReport;
 public class PersonalityTestApp {
     private PersonalityTest test;
     private Scanner input;
@@ -29,14 +32,13 @@ public class PersonalityTestApp {
             displayMenu();
             command = input.nextLine();
             command = command.toLowerCase();
-        
 
-        if (command.equals("q")) {
-            keepRunning = false;
-        } else {
-            processCommand(command);
+            if (command.equals("q")) {
+                keepRunning = false;
+            } else {
+                processCommand(command);
+            }
         }
-    }
 
         System.out.println("You quit!");
     }
@@ -44,7 +46,7 @@ public class PersonalityTestApp {
     private void init() {
         test = new PersonalityTest();
         input = new Scanner(System.in);
-     //   input.useDelimiter("\r?\n|\r");
+        // input.useDelimiter("\r?\n|\r");
 
         test.addQuestion(new Question("I enjoy exploring new scenarios and ideas", "Intuition"));
         test.addQuestion(new Question("I focus on sensory and tangible details", "Sensing"));
@@ -83,8 +85,7 @@ public class PersonalityTestApp {
         System.out.print("Enter your age: ");
         age = input.nextInt();
         input.nextLine();
-        
-        
+
         System.out.print("Enter your ID: ");
         id = input.nextLine();
         System.out.print("Profile created for " + name + ", age: " + age + ", ID: " + id);
@@ -98,7 +99,7 @@ public class PersonalityTestApp {
             String answer = input.nextLine().toLowerCase();
 
             if (answer.equals("y")) {
-            test.trackAnswer(q);
+                test.trackAnswer(q);
             }
         }
         test.calculatePercentage();

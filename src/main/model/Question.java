@@ -1,6 +1,7 @@
 package model;
 
-// Represents a question having a text String value questionText and a String category (one of intuition, sensing, feeling, judging)
+// Represents a question having a text String value questionText and a String category 
+// (one of intuition, sensing, feeling, judging)
 public class Question {
     private String text;
     private String category;
