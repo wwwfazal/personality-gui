@@ -9,6 +9,12 @@ import model.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
+
+// Represents a command interface application for taking a personality test.
+// A user can create a user profile with a name, age, and ID, 
+// take a personality test, view the results including dominant function and 
+// percentages, view information about the questions on the test, and 
+// save and load the personality test using a JSON file.
 @ExcludeFromJacocoGeneratedReport
 public class PersonalityTestApp {
     private PersonalityTest test;
@@ -52,6 +58,8 @@ public class PersonalityTestApp {
         System.out.println("You quit!");
     }
 
+    // MODIFIES: this
+    // EFFECTS: initialises personality test
     private void init() {
         test = new PersonalityTest();
         input = new Scanner(System.in);
@@ -75,6 +83,8 @@ public class PersonalityTestApp {
         System.out.println("\tq -> quit");
     }
 
+    // MODIFIES: this
+    // EFFECTS: processes user command
     private void processCommand(String command) {
         if (command.equals("a")) {
             addUserProfile();
@@ -93,6 +103,8 @@ public class PersonalityTestApp {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds a user profile with name, age, ID to system
     private void addUserProfile() {
         System.out.print("Enter your name: ");
         name = input.nextLine();
@@ -106,6 +118,8 @@ public class PersonalityTestApp {
         System.out.print("Profile created for " + name + ", age: " + age + ", ID: " + id);
     }
 
+    // MODIFIES: this
+    // EFFECTS: calculates percentage breakdown and dominant function
     private void takePersonalityTest() {
         System.out.println("\n*** Take the Personality Test ***");
         for (Question q : test.getQuestions()) {
@@ -162,6 +176,7 @@ public class PersonalityTestApp {
         }
     }
 
+    // EFFECTS: runs the application
     public static void main(String[] args) {
         new PersonalityTestApp();
     }

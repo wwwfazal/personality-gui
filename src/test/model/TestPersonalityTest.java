@@ -1,6 +1,5 @@
 package model;
 
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
@@ -17,7 +16,7 @@ public class TestPersonalityTest {
     PersonalityTest pt;
     Question q1;
     Question q2;
-    
+
     @BeforeEach
     void runBefore() {
 
@@ -34,7 +33,7 @@ public class TestPersonalityTest {
         assertEquals(0, pt.getThinkingIndex());
         assertEquals(0, pt.getSensingIndex());
         assertEquals(0, pt.getFeelingIndex());
-        
+
     }
 
     @Test
@@ -45,7 +44,7 @@ public class TestPersonalityTest {
         assertTrue(questions.contains(q1));
     }
 
-    @Test 
+    @Test
     void testTrackAnswer() {
         pt.addQuestion(q1);
         pt.trackAnswer(q1);
@@ -65,7 +64,7 @@ public class TestPersonalityTest {
         assertEquals(50, pt.getThinkingPercentage());
         assertEquals(0, pt.getSensingPercentage());
         assertEquals(0, pt.getFeelingPercentage());
-   
+
     }
 
     @Test
@@ -75,5 +74,41 @@ public class TestPersonalityTest {
         assertEquals("Thinking", pt.getDominantFunction());
     }
 
+    @Test
+    void testTrackAnswerWithNullQuestion() {
+        pt.trackAnswer(null);
+        assertEquals(0, pt.getIntuitionIndex());
+        assertEquals(0, pt.getThinkingIndex());
+        assertEquals(0, pt.getSensingIndex());
+        assertEquals(0, pt.getFeelingIndex());
+    }
+
+    @Test
+    void testTrackAnswerWithInvalidCategory() {
+        Question invalidQuestion = new Question("Invalid", "Unknown");
+        pt.addQuestion(invalidQuestion);
+        pt.trackAnswer(invalidQuestion);
+        assertEquals(0, pt.getIntuitionIndex());
+        assertEquals(0, pt.getThinkingIndex());
+        assertEquals(0, pt.getSensingIndex());
+        assertEquals(0, pt.getFeelingIndex());
+    }
+
+    @Test
+    void testDominantFunctionTie() {
+        Question q3 = new Question("I enjoy details", "Sensing");
+        pt.addQuestion(q1); // T
+        pt.addQuestion(q3); // S
+        pt.trackAnswer(q1);
+        pt.trackAnswer(q3);
+        String dominant = pt.getDominantFunction();
+        assertTrue(dominant.equals("Thinking") || dominant.equals("Sensing"));
+    }
+
+    @Test
+    void testAddNullQuestion() {
+        pt.addQuestion(null);
+        assertTrue(pt.getQuestions().isEmpty());
+    }
 
 }
