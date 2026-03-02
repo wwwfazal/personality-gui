@@ -1,18 +1,20 @@
-{"personality": [
-    {
-        "question": "I enjoy exploring new scenarios and ideas",
-        "category": "Intuition"
-    },
-    {
-        "question": "I focus on sensory and tangible details",
-        "category": "Sensing"
-    },
-    {
-        "question": "I make decisions logically and efficiently",
-        "category": "Thinking"
-    },
-    {
-        "question": "I value emotions and interpersonal relationships to make decisions",
-        "category": "Feeling"
-    }
-]}
+{
+    "personality": [
+        {
+            "question": "I enjoy exploring new scenarios and ideas",
+            "category": "Intuition"
+        },
+        {
+            "question": "I focus on sensory and tangible details",
+            "category": "Sensing"
+        },
+        {
+            "question": "I make decisions logically and efficiently",
+            "category": "Thinking"
+        },
+        {
+            "question": "I value emotions and interpersonal relationships to make decisions",
+            "category": "Feeling"
+        }
+    ]
+}

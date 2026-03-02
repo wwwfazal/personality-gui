@@ -1,9 +1,13 @@
 package ui;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import model.*;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 @ExcludeFromJacocoGeneratedReport
 public class PersonalityTestApp {
@@ -12,10 +16,15 @@ public class PersonalityTestApp {
     private String name;
     private int age;
     private String id;
+    private static final String JSON_STORE = "./data/personality.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: starts and runs the personality test app
     public PersonalityTestApp() {
         {
+            jsonWriter = new JsonWriter(JSON_STORE);
+            jsonReader = new JsonReader(JSON_STORE);
             runApp();
         }
     }
@@ -60,7 +69,9 @@ public class PersonalityTestApp {
         System.out.println("\ta -> add user profile");
         System.out.println("\tp -> take the personality test");
         System.out.println("\tr -> view results");
-        System.out.println("\tl -> list all questions");
+        System.out.println("\tv -> view categories of all questions");
+        System.out.println("\ts -> save personality test");
+        System.out.println("\tl -> load personality test");
         System.out.println("\tq -> quit");
     }
 
@@ -71,8 +82,12 @@ public class PersonalityTestApp {
             takePersonalityTest();
         } else if (command.equals("r")) {
             viewPersonalityResults();
-        } else if (command.equals("l")) {
+        } else if (command.equals("v")) {
             listPersonalityQuestions();
+        } else if (command.equals("s")) {
+            savePersonalityTest();
+        } else if (command.equals("l")) {
+            loadPersonalityTest();
         } else {
             System.out.println("Sorry, that's not an option.");
         }
@@ -121,6 +136,29 @@ public class PersonalityTestApp {
         System.out.println("\n***All Questions ***");
         for (Question q : test.getQuestions()) {
             System.out.println("- " + q.getText() + " (" + q.getCategory() + ")");
+        }
+    }
+
+    // EFFECTS: saves the workroom to file
+    private void savePersonalityTest() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(test);
+            jsonWriter.close();
+            System.out.println("Saved personality to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads workroom from file
+    private void loadPersonalityTest() {
+        try {
+            test = jsonReader.read();
+            System.out.println("Loaded from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 

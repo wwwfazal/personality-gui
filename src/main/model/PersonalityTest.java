@@ -136,7 +136,6 @@ public class PersonalityTest implements Writable {
         return json;
     }
 
-
     public int getIntuitionIndex() {
         return intuitionIndex;
     }

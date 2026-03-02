@@ -29,7 +29,7 @@ public class JsonReader {
     }
 
     // EFFECTS: reads source file as string and returns it
-   private String readFile(String source) throws IOException {
+    private String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();
 
         try (Stream<String> stream = Files.lines(Paths.get(source), StandardCharsets.UTF_8)) {
@@ -50,7 +50,7 @@ public class JsonReader {
 
     // MODIFIES: pt
     // EFFECTS: parses questions from JSON object and adds them to personality test
-     private void addQuestions(PersonalityTest pt, JSONObject jsonObject) {
+    private void addQuestions(PersonalityTest pt, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("personality");
         for (Object json : jsonArray) {
             JSONObject nextThingy = (JSONObject) json;

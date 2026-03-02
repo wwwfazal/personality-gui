@@ -47,7 +47,8 @@ public class TestJsonWriter extends JsonTest {
         try {
             PersonalityTest pt = new PersonalityTest();
             pt.addQuestion(new Question("Do you enjoy reminiscing the past?", "sensing"));
-            pt.addQuestion(new Question("Do you imagine numerous possibilities when working on a project?", "intuition"));
+            pt.addQuestion(new Question("Do you imagine numerous possibilities when working on a project?",
+                    "intuition"));
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralPersonalityTest.json");
             writer.open();
             writer.write(pt);
@@ -59,7 +60,8 @@ public class TestJsonWriter extends JsonTest {
             List<Question> questions = pt.getQuestions();
             assertEquals(2, questions.size());
             checkQuestion("Do you enjoy reminiscing the past?", "sensing", questions.get(0));
-            checkQuestion("Do you imagine numerous possibilities when working on a project?", "intuition", questions.get(1));
+            checkQuestion("Do you imagine numerous possibilities when working on a project?",
+                    "intuition", questions.get(1));
 
         } catch (IOException e) {
             fail("Exception should not have been thrown");

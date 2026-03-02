@@ -2,8 +2,6 @@ package persistence;
 
 import model.PersonalityTest;
 import model.Question;
-import model.Question;
-import model.PersonalityTest;
 import org.junit.jupiter.api.Test;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
@@ -42,12 +40,13 @@ public class TestJsonReader extends JsonTest {
     void testReaderGeneralWorkRoom() {
         JsonReader reader = new JsonReader("./data/testReaderGeneralPersonalityTest.json");
         try {
-           PersonalityTest pt = reader.read();
+            PersonalityTest pt = reader.read();
             assertEquals("None", pt.getDominantFunction());
             List<Question> questions = pt.getQuestions();
             assertEquals(2, questions.size());
             checkQuestion("Do you enjoy reminiscing the past?", "sensing", questions.get(0));
-            checkQuestion("Do you imagine numerous possibilities when working on a project?", "intuition", questions.get(1));
+            checkQuestion("Do you imagine numerous possibilities when working on a project?", "intuition",
+                    questions.get(1));
         } catch (IOException e) {
             fail("Couldn't read from file");
         }
