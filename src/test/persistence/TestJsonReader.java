@@ -1,10 +1,9 @@
 package persistence;
 
-import model.Category;
 import model.PersonalityTest;
 import model.Question;
-import model.Thingy;
-import model.WorkRoom;
+import model.Question;
+import model.PersonalityTest;
 import org.junit.jupiter.api.Test;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
