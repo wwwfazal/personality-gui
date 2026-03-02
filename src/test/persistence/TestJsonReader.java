@@ -28,7 +28,7 @@ public class TestJsonReader extends JsonTest {
 
     @Test
     void testReaderEmptyPersonalityTest() {
-        JsonReader reader = new JsonReader("./data/testReaderEmptyWorkRoom.json");
+        JsonReader reader = new JsonReader("./data/testReaderEmptyPersonalityTest.json");
         try {
             PersonalityTest pt = reader.read();
             assertEquals("None", pt.getDominantFunction());
@@ -40,7 +40,7 @@ public class TestJsonReader extends JsonTest {
 
     @Test
     void testReaderGeneralWorkRoom() {
-        JsonReader reader = new JsonReader("./data/testReaderGeneralWorkRoom.json");
+        JsonReader reader = new JsonReader("./data/testReaderGeneralPersonalityTest.json");
         try {
            PersonalityTest pt = reader.read();
             assertEquals("None", pt.getDominantFunction());

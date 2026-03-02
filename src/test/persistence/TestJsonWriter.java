@@ -28,12 +28,12 @@ public class TestJsonWriter extends JsonTest {
     void testWriterEmptyPersonalityTest() {
         try {
             PersonalityTest pt = new PersonalityTest();
-            JsonWriter writer = new JsonWriter("./data/testWriterEmptyWorkroom.json");
+            JsonWriter writer = new JsonWriter("./data/testWriterEmptyPersonalityTestjson");
             writer.open();
             writer.write(pt);
             writer.close();
 
-            JsonReader reader = new JsonReader("./data/testWriterEmptyWorkroom.json");
+            JsonReader reader = new JsonReader("./data/testWriterEmptyPersonalityTest.json");
             pt = reader.read();
             assertEquals("None", pt.getDominantFunction());
             assertTrue(pt.getQuestions().isEmpty());

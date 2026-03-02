@@ -90,13 +90,13 @@ public class PersonalityTest implements Writable {
     public void trackAnswer(Question question) {
         if (question != null) {
             String category = question.getCategory();
-            if (category.equals("intuition")) {
+            if (category.equals("Intuition")) {
                 intuitionIndex += 1;
-            } else if (category.equals("thinking")) {
+            } else if (category.equals("Thinking")) {
                 thinkingIndex += 1;
-            } else if (category.equals("sensing")) {
+            } else if (category.equals("Sensing")) {
                 sensingIndex += 1;
-            } else if (category.equals("feeling")) {
+            } else if (category.equals("Feeling")) {
                 feelingIndex += 1;
             }
         }
@@ -132,7 +132,7 @@ public class PersonalityTest implements Writable {
             questionJson.put("category", q.getCategory());
             jsonArray.put(questionJson);
         }
-        json.put("thingies", jsonArray); // matches JsonReader
+        json.put("questions", jsonArray); // matches JsonReader
         return json;
     }
 
