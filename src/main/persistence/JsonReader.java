@@ -51,7 +51,7 @@ public class JsonReader {
     // MODIFIES: pt
     // EFFECTS: parses questions from JSON object and adds them to personality test
      private void addQuestions(PersonalityTest pt, JSONObject jsonObject) {
-        JSONArray jsonArray = jsonObject.getJSONArray("questions");
+        JSONArray jsonArray = jsonObject.getJSONArray("personality");
         for (Object json : jsonArray) {
             JSONObject nextThingy = (JSONObject) json;
             addQuestion(pt, nextThingy);

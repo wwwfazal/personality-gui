@@ -28,7 +28,7 @@ public class TestJsonWriter extends JsonTest {
     void testWriterEmptyPersonalityTest() {
         try {
             PersonalityTest pt = new PersonalityTest();
-            JsonWriter writer = new JsonWriter("./data/testWriterEmptyPersonalityTestjson");
+            JsonWriter writer = new JsonWriter("./data/testWriterEmptyPersonalityTest.json");
             writer.open();
             writer.write(pt);
             writer.close();

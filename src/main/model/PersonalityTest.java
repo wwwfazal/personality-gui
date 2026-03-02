@@ -132,7 +132,7 @@ public class PersonalityTest implements Writable {
             questionJson.put("category", q.getCategory());
             jsonArray.put(questionJson);
         }
-        json.put("questions", jsonArray); // matches JsonReader
+        json.put("personality", jsonArray); // matches JsonReader
         return json;
     }
 

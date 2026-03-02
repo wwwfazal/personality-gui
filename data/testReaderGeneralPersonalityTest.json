@@ -1,0 +1,12 @@
+{
+  "personality": [
+    {
+      "question": "Do you enjoy reminiscing the past?",
+      "category": "sensing"
+    },
+    {
+      "question": "Do you imagine numerous possibilities when working on a project?",
+      "category": "intuition"
+    }
+  ]
+}
