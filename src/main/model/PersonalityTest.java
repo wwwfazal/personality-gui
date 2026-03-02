@@ -85,13 +85,13 @@ public class PersonalityTest {
     public void trackAnswer(Question question) {
         if (question != null) {
             String category = question.getCategory();
-            if (category.equals("Intuition")) {
+            if (category.equals("intuition")) {
                 intuitionIndex += 1;
-            } else if (category.equals("Thinking")) {
+            } else if (category.equals("thinking")) {
                 thinkingIndex += 1;
-            } else if (category.equals("Sensing")) {
+            } else if (category.equals("sensing")) {
                 sensingIndex += 1;
-            } else if (category.equals("Feeling")) {
+            } else if (category.equals("feeling")) {
                 feelingIndex += 1;
             }
         }
