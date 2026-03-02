@@ -2,9 +2,14 @@ package model;
 
 import java.util.*;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // Represents a personality test that contains questions 
 // records answers, and calculates percentages and the dominant function
-public class PersonalityTest {
+public class PersonalityTest implements Writable {
 
     private List<Question> questions;
     private int intuitionIndex;
@@ -116,6 +121,21 @@ public class PersonalityTest {
         }
 
     }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        JSONArray jsonArray = new JSONArray();
+        for (Question q : questions) {
+            JSONObject questionJson = new JSONObject();
+            questionJson.put("question", q.getText());
+            questionJson.put("category", q.getCategory());
+            jsonArray.put(questionJson);
+        }
+        json.put("thingies", jsonArray); // matches JsonReader
+        return json;
+    }
+
 
     public int getIntuitionIndex() {
         return intuitionIndex;
