@@ -126,13 +126,22 @@ public class PersonalityTest implements Writable {
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         JSONArray jsonArray = new JSONArray();
+
         for (Question q : questions) {
             JSONObject questionJson = new JSONObject();
             questionJson.put("question", q.getText());
             questionJson.put("category", q.getCategory());
             jsonArray.put(questionJson);
         }
-        json.put("personality", jsonArray); // matches JsonReader
+
+        json.put("personality", jsonArray);
+
+        // Save tracked indexes
+        json.put("intuitionIndex", intuitionIndex);
+        json.put("thinkingIndex", thinkingIndex);
+        json.put("sensingIndex", sensingIndex);
+        json.put("feelingIndex", feelingIndex);
+
         return json;
     }
 
@@ -166,6 +175,22 @@ public class PersonalityTest implements Writable {
 
     public int getFeelingPercentage() {
         return feelingPercent;
+    }
+
+    public void setIntuitionIndex(int value) {
+        intuitionIndex = value;
+    }
+
+    public void setThinkingIndex(int value) {
+        thinkingIndex = value;
+    }
+
+    public void setSensingIndex(int value) {
+        sensingIndex = value;
+    }
+
+    public void setFeelingIndex(int value) {
+        feelingIndex = value;
     }
 
 }

@@ -39,14 +39,20 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
-
     // EFFECTS: parses personality test data from JSON object and returns it
     private PersonalityTest parsePersonalityTest(JSONObject jsonObject) {
         PersonalityTest pt = new PersonalityTest();
         addQuestions(pt, jsonObject);
+
+        pt.setIntuitionIndex(jsonObject.optInt("intuitionIndex", 0));
+        pt.setThinkingIndex(jsonObject.optInt("thinkingIndex", 0));
+        pt.setSensingIndex(jsonObject.optInt("sensingIndex", 0));
+        pt.setFeelingIndex(jsonObject.optInt("feelingIndex", 0));
+
+        pt.calculatePercentage();
+
         return pt;
     }
-
 
     // MODIFIES: pt
     // EFFECTS: parses questions from JSON object and adds them to personality test
