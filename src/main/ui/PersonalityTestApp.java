@@ -5,7 +5,7 @@ import java.util.Scanner;
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import model.*;
 
-@ExcludeFromJacocoGeneratedReport;
+@ExcludeFromJacocoGeneratedReport
 public class PersonalityTestApp {
     private PersonalityTest test;
     private Scanner input;
