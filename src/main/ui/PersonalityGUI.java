@@ -12,6 +12,10 @@ public class PersonalityGUI extends JFrame {
 
     public PersonalityGUI() {
         personalityTest = new PersonalityTest();
+        personalityTest.addQuestion(new Question("I enjoy exploring new scenarios and ideas", "Intuition"));
+        personalityTest.addQuestion(new Question("I focus on sensory and tangible details", "Sensing"));
+        personalityTest.addQuestion(new Question("I make decisions logically and efficiently", "Thinking"));
+        personalityTest.addQuestion(new Question("I value emotions and interpersonal relationships to make decisions", "Feeling"));
 
 
         setTitle("Personality Test Application");
