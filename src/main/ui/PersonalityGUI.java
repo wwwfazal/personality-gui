@@ -11,12 +11,15 @@ import java.awt.FlowLayout;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+// Represents a GUI (Graphical User Interface) for the personality test. Includes a button to take the test,
+// an area to view results, and respective save and load buttons using JFrame. 
 public class PersonalityGUI extends JFrame {
     PersonalityTest personalityTest;
     private static final String JSON_STORE = "./data/personality.json";
     private JsonReader jsonReader;
     private JsonWriter jsonWriter;
 
+    // EFFECTS: Starts the personality GUI
     public PersonalityGUI() {
         personalityTest = new PersonalityTest();
         personalityTest.addQuestion(new Question("I enjoy exploring new scenarios and ideas", "Intuition"));
