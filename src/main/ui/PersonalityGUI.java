@@ -4,11 +4,18 @@ import javax.swing.*;
 
 import model.PersonalityTest;
 import model.Question;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 import java.awt.FlowLayout;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class PersonalityGUI extends JFrame {
     PersonalityTest personalityTest;
+    private static final String JSON_STORE = "./data/personality.json";
+    private JsonReader jsonReader;
+    private JsonWriter jsonWriter;
 
     public PersonalityGUI() {
         personalityTest = new PersonalityTest();
@@ -69,10 +76,38 @@ public class PersonalityGUI extends JFrame {
 
         });
 
+        jsonReader = new JsonReader(JSON_STORE);
+        jsonWriter = new JsonWriter(JSON_STORE);
+
+        save.addActionListener(e -> {
+            try {
+                jsonWriter.open();
+                jsonWriter.write(personalityTest);
+                jsonWriter.close();
+                JOptionPane.showMessageDialog(this, "Saved to " + JSON_STORE);
+            } catch (FileNotFoundException ex) {
+                JOptionPane.showMessageDialog(this, "Your file was not successfully saved.");
+            }
+        });
+
+        load.addActionListener(e -> {
+            try {
+                personalityTest = jsonReader.read();
+                JOptionPane.showMessageDialog(this, "Loaded from " + JSON_STORE);
+
+                area.setText(
+                    "Dominant Function: " + personalityTest.getDominantFunction() + "\n" +
+                    "Intuition: " + personalityTest.getIntuitionPercentage() + "%\n" +
+                    "Thinking: " + personalityTest.getThinkingPercentage() + "%\n" +
+                    "Sensing: " + personalityTest.getSensingPercentage() + "%\n" +
+                    "Feeling: " + personalityTest.getFeelingPercentage() + "%\n"
+                );
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "Your file was not loaded successfully.");
+            }
+        });
 
 
     }
-
-    
 
 }
