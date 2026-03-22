@@ -1,4 +1,5 @@
 {
+    "totalAnswers": 6,
     "personality": [
         {
             "question": "I enjoy exploring new scenarios and ideas",
@@ -19,6 +20,6 @@
     ],
     "thinkingIndex": 1,
     "feelingIndex": 1,
-    "intuitionIndex": 1,
-    "sensingIndex": 1
+    "intuitionIndex": 2,
+    "sensingIndex": 2
 }

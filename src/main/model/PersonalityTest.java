@@ -145,6 +145,7 @@ public class PersonalityTest implements Writable {
         json.put("thinkingIndex", thinkingIndex);
         json.put("sensingIndex", sensingIndex);
         json.put("feelingIndex", feelingIndex);
+        json.put("totalAnswers", totalAnswers);
 
         return json;
     }
@@ -183,6 +184,10 @@ public class PersonalityTest implements Writable {
 
     public int getFeelingPercentage() {
         return feelingPercent;
+    }
+
+    public void setTotalAnswers(int totalAnswers) {
+        this.totalAnswers = totalAnswers;
     }
 
     public void setIntuitionIndex(int value) {

@@ -170,6 +170,7 @@ public class PersonalityTestApp {
     private void loadPersonalityTest() {
         try {
             test = jsonReader.read();
+
             System.out.println("Loaded from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);

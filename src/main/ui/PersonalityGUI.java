@@ -105,14 +105,16 @@ public class PersonalityGUI extends JFrame {
             try {
                 personalityTest = jsonReader.read();
                 JOptionPane.showMessageDialog(this, "Loaded from " + JSON_STORE);
-
                 area.setText(
                     "Dominant Function: " + personalityTest.getDominantFunction() + "\n" +
                     "Intuition: " + personalityTest.getIntuitionPercentage() + "%\n" +
                     "Thinking: " + personalityTest.getThinkingPercentage() + "%\n" +
                     "Sensing: " + personalityTest.getSensingPercentage() + "%\n" +
-                    "Feeling: " + personalityTest.getFeelingPercentage() + "%\n"
+                    "Feeling: " + personalityTest.getFeelingPercentage() + "%\n" +
+                    "Total questions answered: " + personalityTest.getTotalAnswers()
                 );
+                piChart.setTest(personalityTest);
+                piChart.repaint();
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(this, "Your file was not loaded successfully.");
             }
