@@ -53,7 +53,7 @@ public class PersonalityGUI extends JFrame {
 
         test.addActionListener(e -> {
             for (Question q : personalityTest.getQuestions()) {
-                int response = JOptionPane.showConfirmDialog(this, q.getText(), "Answer y or n", JOptionPane.YES_NO_OPTION);
+                int response = JOptionPane.showConfirmDialog(this, q.getText(), "Answer yes or no", JOptionPane.YES_NO_OPTION);
 
                 if (response == JOptionPane.YES_OPTION) {
                     personalityTest.trackAnswer(q);
@@ -86,7 +86,7 @@ public class PersonalityGUI extends JFrame {
                 jsonWriter.close();
                 JOptionPane.showMessageDialog(this, "Saved to " + JSON_STORE);
             } catch (FileNotFoundException ex) {
-                JOptionPane.showMessageDialog(this, "Your file was not successfully saved.");
+                JOptionPane.showMessageDialog(this, "Your file was not saved successfully.");
             }
         });
 
