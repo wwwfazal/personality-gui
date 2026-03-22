@@ -42,6 +42,14 @@ public class PiChart extends JPanel {
         String[] labels = {"Intuition", "Thinking", "Sensing", "Feeling"};
 
         int startPi = 0;
+
+        for (int i = 0; i < values.length; i++) {
+            int angle = (int) Math.round(values[i] * 3.6);
+            g.setColor(colours[i]);
+            g.fillArc(100, 50, 200, 200, startPi, angle);
+            startPi += angle;
+        }
+
     }
 
 }

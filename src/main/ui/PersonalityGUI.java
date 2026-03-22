@@ -18,8 +18,9 @@ public class PersonalityGUI extends JFrame {
     private static final String JSON_STORE = "./data/personality.json";
     private JsonReader jsonReader;
     private JsonWriter jsonWriter;
+    private PiChart piChart;
 
-    // EFFECTS: Starts the personality GUI
+    // EFFECTS: Starts the personality GUI and creates the visual Pi Chart
     public PersonalityGUI() {
         personalityTest = new PersonalityTest();
         personalityTest.addQuestion(new Question("I enjoy exploring new scenarios and ideas", "Intuition"));
@@ -40,6 +41,9 @@ public class PersonalityGUI extends JFrame {
         JButton test = new JButton("Take personality test");
         JButton results = new JButton("View your results");
 
+
+        piChart = new PiChart(personalityTest);
+        panel.add(piChart);
         panel.add(test);
         panel.add(results);
         panel.add(save);
@@ -54,6 +58,8 @@ public class PersonalityGUI extends JFrame {
 
         panel.add(area);
 
+        
+
         test.addActionListener(e -> {
             for (Question q : personalityTest.getQuestions()) {
                 int response = JOptionPane.showConfirmDialog(this, q.getText(), "Answer yes or no", JOptionPane.YES_NO_OPTION);
@@ -65,6 +71,7 @@ public class PersonalityGUI extends JFrame {
 
             personalityTest.calculatePercentage();
             JOptionPane.showMessageDialog(this, "Your test has been updated.");
+            piChart.setTest(personalityTest);
         });
 
 
@@ -109,6 +116,8 @@ public class PersonalityGUI extends JFrame {
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(this, "Your file was not loaded successfully.");
             }
+
+            piChart.setTest(personalityTest);
         });
 
 
