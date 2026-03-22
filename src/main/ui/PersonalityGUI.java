@@ -73,7 +73,8 @@ public class PersonalityGUI extends JFrame {
             "Intuition: " + personalityTest.getIntuitionPercentage() + "%\n" +
             "Thinking: " + personalityTest.getThinkingPercentage() + "%\n" +
             "Sensing: " + personalityTest.getSensingPercentage() + "%\n" +
-            "Feeling: " + personalityTest.getFeelingPercentage() + "%\n";
+            "Feeling: " + personalityTest.getFeelingPercentage() + "%\n" +
+            "Total questions answered: " + personalityTest.getTotalAnswers();
 
             area.setText(result);
 

@@ -21,10 +21,13 @@ public class PersonalityTest implements Writable {
     private int thinkingPercent;
     private int sensingPercent;
     private int feelingPercent;
+    private int totalAnswers;
 
     // EFFECTS: Constructs an empty personality test with no questions and all index
     // scores == 0
     public PersonalityTest() {
+        totalAnswers = 0;
+
         questions = new ArrayList<>();
         intuitionIndex = 0;
         thinkingIndex = 0;
@@ -89,6 +92,7 @@ public class PersonalityTest implements Writable {
     // question
     public void trackAnswer(Question question) {
         if (question != null) {
+            totalAnswers++;
             String category = question.getCategory();
             if (category.equals("Intuition")) {
                 intuitionIndex += 1;
@@ -143,6 +147,10 @@ public class PersonalityTest implements Writable {
         json.put("feelingIndex", feelingIndex);
 
         return json;
+    }
+
+    public int getTotalAnswers() {
+        return totalAnswers;
     }
 
     public int getIntuitionIndex() {
