@@ -58,7 +58,8 @@ public class PersonalityTest implements Writable {
     }
 
     // REQUIRES: questions.size() > 0,
-    // EFFECTS: returns the function with the highest index
+    // EFFECTS: returns the function with the highest index. 
+    //          If multiple functions have the same index, return the first function.
     public String getDominantFunction() {
         int cumulative = intuitionIndex + thinkingIndex + sensingIndex + feelingIndex;
         if (cumulative == 0) {
@@ -83,7 +84,11 @@ public class PersonalityTest implements Writable {
             dominantFunction = "Feeling";
         }
 
+        EventLog.getInstance().logEvent(
+                new Event("User's dominant function calculated:" + dominantFunction)
+            );
         return dominantFunction;
+
     }
 
     // REQUIRES: question in personality test
@@ -94,7 +99,7 @@ public class PersonalityTest implements Writable {
         if (question != null) {
             totalAnswers++;
             EventLog.getInstance().logEvent(
-                new Event(", Total answers: " + totalAnswers)        
+                new Event("User's total answers updated: " + totalAnswers)        
             );
             String category = question.getCategory();
             if (category.equals("Intuition")) {
@@ -108,8 +113,8 @@ public class PersonalityTest implements Writable {
             }
             
             EventLog.getInstance().logEvent(
-                new Event("Tracked answer for category: " + category 
-                             + ", Total answers: " + totalAnswers)
+                new Event("Tracked user's answer for category: " + category 
+                             + ". Total answers: " + totalAnswers)
                 
             );
         }
@@ -131,6 +136,11 @@ public class PersonalityTest implements Writable {
             thinkingPercent = (thinkingIndex * 100) / cumulative;
             sensingPercent = (sensingIndex * 100) / cumulative;
             feelingPercent = (feelingIndex * 100) / cumulative;
+
+             EventLog.getInstance().logEvent(
+                new Event("User's current function percentages calculated: (I/T/S/F) " 
+                + intuitionPercent + "/" + thinkingPercent + "/" + sensingPercent + "/" + feelingPercent)
+            );
         }
 
     }
