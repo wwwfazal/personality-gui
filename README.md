@@ -13,3 +13,12 @@ User Stories:
 - As a user, I want to be able to view information about what each function means.
 - As a user, during the application I want to have the option to save my personality results from the file  
 - As a user, when I start the application I want to have the option to load my personality data from file
+
+# Instructions for End User
+
+- You can view the panel that displays the Xs that have already been added to the Y by looking at the pie chart to see the results of all the questions added to your personality profile.
+- You can generate the first required action related to the user story "adding multiple Xs to a Y" by clicking the button Take the Personality Test.
+- You can generate the second required action related to the user story "adding multiple Xs to a Y" by clicking the button View my Results.
+- You can locate my visual component by taking the test and viewing the updated pie chart.
+- You can save the state of my application by pressing the save button
+- You can reload the state of my application by pressing the load button.
