@@ -22,3 +22,18 @@ User Stories:
 - You can locate my visual component by taking the test and viewing the updated pie chart.
 - You can save the state of my application by pressing the save button
 - You can reload the state of my application by pressing the load button.
+
+# Phase 4: Task 2
+Sun Mar 29 15:51:28 PDT 2026
+Added user's answer for category to personality profile: Intuition. User's total answers updated: 1
+Sun Mar 29 15:51:29 PDT 2026
+Added user's answer for category to personality profile: Thinking. User's total answers updated: 2
+Sun Mar 29 15:51:30 PDT 2026
+User's current function percentages calculated: (I/T/S/F) 50/50/0/0
+Sun Mar 29 15:51:31 PDT 2026
+User's dominant function calculated:Intuition
+Sun Mar 29 15:51:33 PDT 2026
+User's current function percentages calculated: (I/T/S/F) 50/50/0/0
+Sun Mar 29 15:51:34 PDT 2026
+User's dominant function calculated:Intuition
+
