@@ -93,6 +93,9 @@ public class PersonalityTest implements Writable {
     public void trackAnswer(Question question) {
         if (question != null) {
             totalAnswers++;
+            EventLog.getInstance().logEvent(
+                new Event(", Total answers: " + totalAnswers)        
+            );
             String category = question.getCategory();
             if (category.equals("Intuition")) {
                 intuitionIndex += 1;
@@ -103,6 +106,12 @@ public class PersonalityTest implements Writable {
             } else if (category.equals("Feeling")) {
                 feelingIndex += 1;
             }
+            
+            EventLog.getInstance().logEvent(
+                new Event("Tracked answer for category: " + category 
+                             + ", Total answers: " + totalAnswers)
+                
+            );
         }
 
     }

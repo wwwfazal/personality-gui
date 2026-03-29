@@ -27,7 +27,7 @@ public class PersonalityGUI extends JFrame {
 
         setTitle("Personality Test Application");
         setSize(600, 400);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         JPanel panel = new JPanel();
 
@@ -36,12 +36,11 @@ public class PersonalityGUI extends JFrame {
         JButton test = new JButton("Take personality test");
         JButton results = new JButton("View your results");
 
-
         piChart = new PiChart(personalityTest);
         panelAdder(panel, piChart, test, results, save, load);
 
         add(panel);
-        
+
         setVisible(true);
 
         JTextArea area = new JTextArea(10, 50);
@@ -59,6 +58,7 @@ public class PersonalityGUI extends JFrame {
         saveActionListener(save);
 
         loadActionListener(load, area);
+        addWindowCloseListener();
     }
 
     public void addQuestions() {
@@ -66,7 +66,7 @@ public class PersonalityGUI extends JFrame {
         personalityTest.addQuestion(new Question("I focus on sensory and tangible details", "Sensing"));
         personalityTest.addQuestion(new Question("I make decisions logically and efficiently", "Thinking"));
         personalityTest.addQuestion(new Question("I value emotions and interpersonal relationships to make decisions",
-                                     "Feeling"));
+                "Feeling"));
 
     }
 
@@ -89,13 +89,12 @@ public class PersonalityGUI extends JFrame {
                 personalityTest = jsonReader.read();
                 JOptionPane.showMessageDialog(this, "Loaded from " + JSON_STORE);
                 area.setText(
-                                    "Dominant Function: " + personalityTest.getDominantFunction() + "\n" 
-                                    + "Intuition: " + personalityTest.getIntuitionPercentage() + "%\n" 
-                                    + "Thinking: " + personalityTest.getThinkingPercentage() + "%\n" 
-                                    + "Sensing: " + personalityTest.getSensingPercentage() + "%\n" 
-                                    + "Feeling: " + personalityTest.getFeelingPercentage() + "%\n" 
-                                    + "Total questions answered: " + personalityTest.getTotalAnswers()
-                );
+                        "Dominant Function: " + personalityTest.getDominantFunction() + "\n"
+                                + "Intuition: " + personalityTest.getIntuitionPercentage() + "%\n"
+                                + "Thinking: " + personalityTest.getThinkingPercentage() + "%\n"
+                                + "Sensing: " + personalityTest.getSensingPercentage() + "%\n"
+                                + "Feeling: " + personalityTest.getFeelingPercentage() + "%\n"
+                                + "Total questions answered: " + personalityTest.getTotalAnswers());
                 piChart.setTest(personalityTest);
                 piChart.repaint();
             } catch (IOException ex) {
@@ -117,12 +116,12 @@ public class PersonalityGUI extends JFrame {
 
     public void resultsActionListener(JButton results, JTextArea area) {
         results.addActionListener(e -> {
-            String result = "Dominant Function: " + personalityTest.getDominantFunction() + "\n" 
-                                            + "Intuition: " + personalityTest.getIntuitionPercentage() + "%\n" 
-                                            + "Thinking: " + personalityTest.getThinkingPercentage() + "%\n" 
-                                            + "Sensing: " + personalityTest.getSensingPercentage() + "%\n" 
-                                            + "Feeling: " + personalityTest.getFeelingPercentage() + "%\n"
-                                            + "Total questions answered: " + personalityTest.getTotalAnswers();
+            String result = "Dominant Function: " + personalityTest.getDominantFunction() + "\n"
+                    + "Intuition: " + personalityTest.getIntuitionPercentage() + "%\n"
+                    + "Thinking: " + personalityTest.getThinkingPercentage() + "%\n"
+                    + "Sensing: " + personalityTest.getSensingPercentage() + "%\n"
+                    + "Feeling: " + personalityTest.getFeelingPercentage() + "%\n"
+                    + "Total questions answered: " + personalityTest.getTotalAnswers();
 
             area.setText(result);
 
@@ -132,8 +131,8 @@ public class PersonalityGUI extends JFrame {
     public void addActionListener(JButton test) {
         test.addActionListener(e -> {
             for (Question q : personalityTest.getQuestions()) {
-                int response = JOptionPane.showConfirmDialog(this, q.getText(), "Answer yes or no", 
-                                                JOptionPane.YES_NO_OPTION);
+                int response = JOptionPane.showConfirmDialog(this, q.getText(), "Answer yes or no",
+                        JOptionPane.YES_NO_OPTION);
 
                 if (response == JOptionPane.YES_OPTION) {
                     personalityTest.trackAnswer(q);
@@ -146,7 +145,26 @@ public class PersonalityGUI extends JFrame {
         });
     }
 
-     public static void main(String[] args) {
+    public void addWindowCloseListener() {
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
+        addWindowListener(new java.awt.event.WindowAdapter() {
+
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                printEventLog();
+                System.exit(0);
+            }
+        });
+    }
+
+    private void printEventLog() {
+        for (model.Event e : model.EventLog.getInstance()) {
+            System.out.println(e);
+        }
+    }
+
+    public static void main(String[] args) {
         new PersonalityGUI();
     }
 
