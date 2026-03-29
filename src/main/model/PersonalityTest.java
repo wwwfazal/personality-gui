@@ -114,7 +114,7 @@ public class PersonalityTest implements Writable {
             
             EventLog.getInstance().logEvent(
                 new Event("Tracked user's answer for category: " + category 
-                             + ". TUser's total answers updated: " + totalAnswers)
+                             + ". User's total answers updated: " + totalAnswers)
                 
             );
         }
