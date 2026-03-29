@@ -146,4 +146,8 @@ public class PersonalityGUI extends JFrame {
         });
     }
 
+     public static void main(String[] args) {
+        new PersonalityGUI();
+    }
+
 }
