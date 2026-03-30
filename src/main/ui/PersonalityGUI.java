@@ -58,6 +58,7 @@ public class PersonalityGUI extends JFrame {
         addWindowCloseListener();
     }
 
+    // EFFECTS: adds Questions to the PersonalityTest with categories: Intuition, Thinking, Sensing, Feeling
     public void addQuestions() {
         personalityTest.addQuestion(new Question("I enjoy exploring new scenarios and ideas", "Intuition"));
         personalityTest.addQuestion(new Question("I focus on sensory and tangible details", "Sensing"));
@@ -67,6 +68,7 @@ public class PersonalityGUI extends JFrame {
 
     }
 
+    // EFFECTS: A save button that saves the user's data to JSON_STORE
     public void saveActionListener(JButton save) {
         save.addActionListener(e -> {
             try {
@@ -80,6 +82,7 @@ public class PersonalityGUI extends JFrame {
         });
     }
 
+    // EFFECTS: A load button that loads the user's data from JSON_STORE
     public void loadActionListener(JButton load, JTextArea area) {
         load.addActionListener(e -> {
             try {
@@ -102,6 +105,7 @@ public class PersonalityGUI extends JFrame {
         });
     }
 
+    // EFFECTS: The main panel of the GUI that has all of the buttons and the panel
     public void panelAdder(JPanel panel, PiChart piChart, JButton test, JButton results, JButton save, JButton load) {
         panel.setLayout(new FlowLayout());
         panel.add(piChart);
@@ -111,6 +115,8 @@ public class PersonalityGUI extends JFrame {
         panel.add(load);
     }
 
+    // EFFECTS: A button that shows the user their results, including the dominant function and respective
+    //          percentages calculated for each personality category
     public void resultsActionListener(JButton results, JTextArea area) {
         results.addActionListener(e -> {
             String result = "Dominant Function: " + personalityTest.getDominantFunction() + "\n"
@@ -125,6 +131,8 @@ public class PersonalityGUI extends JFrame {
         });
     }
 
+    // EFFECTS: A button that lets the user take the personality test with two options, either yes or no
+    //          and tracks the user's response 
     public void addActionListener(JButton test) {
         test.addActionListener(e -> {
             for (Question q : personalityTest.getQuestions()) {
@@ -142,6 +150,7 @@ public class PersonalityGUI extends JFrame {
         });
     }
 
+    // EFFECTS: closes the application when the user has decided to quit
     public void addWindowCloseListener() {
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
@@ -155,12 +164,14 @@ public class PersonalityGUI extends JFrame {
         });
     }
 
+    // EFFECTS: prints the user's event log to the console
     private void printEventLog() {
         for (model.Event e : model.EventLog.getInstance()) {
             System.out.println(e);
         }
     }
 
+    // EFFECTS: runs and starts the program
     public static void main(String[] args) {
         new PersonalityGUI();
     }

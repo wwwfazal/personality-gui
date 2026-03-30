@@ -14,17 +14,20 @@ import model.PersonalityTest;
 public class PiChart extends JPanel {
     private PersonalityTest personalityTest;
 
+    // Creates a PiChart with a PersonalityTest, size, and background
     public PiChart(PersonalityTest personalityTest) {
         this.personalityTest = personalityTest;
         setPreferredSize(new Dimension(400, 300));
         setBackground(Color.WHITE);
     }
 
+    // Sets the test 
     public void setTest(PersonalityTest personalityTest) {
         this.personalityTest = personalityTest;
         repaint();
     }
 
+    // Sets up the GUI
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -57,6 +60,7 @@ public class PiChart extends JPanel {
 
     }
 
+    // Assigns colours to the colour wheel of the PiChart
     public void adjustColour(Graphics g) {
         g.setColor(Color.GREEN);
         g.drawString("Intuition", 320, 80);
