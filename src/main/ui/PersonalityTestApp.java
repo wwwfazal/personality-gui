@@ -68,7 +68,8 @@
 //         test.addQuestion(new Question("I enjoy exploring new scenarios and ideas", "Intuition"));
 //         test.addQuestion(new Question("I focus on sensory and tangible details", "Sensing"));
 //         test.addQuestion(new Question("I make decisions logically and efficiently", "Thinking"));
-//         test.addQuestion(new Question("I value emotions and interpersonal relationships to make decisions", "Feeling"));
+//         test.addQuestion(new Question("I value emotions and interpersonal relationships to make decisions", 
+//         "Feeling"));
 //     }
 
 //     // EFFECTS: menu display

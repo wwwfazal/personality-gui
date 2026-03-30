@@ -27,7 +27,6 @@ public class PersonalityGUI extends JFrame {
 
         setTitle("Personality Test Application");
         setSize(600, 400);
-        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         JPanel panel = new JPanel();
 
@@ -52,11 +51,9 @@ public class PersonalityGUI extends JFrame {
 
         resultsActionListener(results, area);
 
-        jsonReader = new JsonReader(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE); 
         jsonWriter = new JsonWriter(JSON_STORE);
-
         saveActionListener(save);
-
         loadActionListener(load, area);
         addWindowCloseListener();
     }

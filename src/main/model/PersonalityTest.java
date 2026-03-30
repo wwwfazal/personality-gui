@@ -86,7 +86,7 @@ public class PersonalityTest implements Writable {
 
         EventLog.getInstance().logEvent(
                 new Event("User's dominant function calculated:" + dominantFunction)
-            );
+        );
         return dominantFunction;
 
     }
@@ -134,9 +134,9 @@ public class PersonalityTest implements Writable {
             sensingPercent = (sensingIndex * 100) / cumulative;
             feelingPercent = (feelingIndex * 100) / cumulative;
 
-             EventLog.getInstance().logEvent(
-                new Event("User's current function percentages calculated: (I/T/S/F) " 
-                + intuitionPercent + "/" + thinkingPercent + "/" + sensingPercent + "/" + feelingPercent)
+            EventLog.getInstance().logEvent(
+                 new Event("User's current function percentages calculated: (I/T/S/F) " 
+                    + intuitionPercent + "/" + thinkingPercent + "/" + sensingPercent + "/" + feelingPercent)
             );
         }
 
